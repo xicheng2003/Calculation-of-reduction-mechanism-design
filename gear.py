@@ -137,7 +137,11 @@ class gear():
             K_H_alpha=1.2#对于7级精度的选择
         else:
             K_H_alpha=1.4#
-        K_H_beta=1.2897#查表10-4，插值法得到0.003+1.287+(30.267-40)*(1.287-1.293)/(40-80)
+        if gear.number==1:
+            K_H_beta=1.289
+        else :
+            K_H_beta=1.28
+        #K_H_beta=1.2897#查表10-4，插值法得到0.003+1.287+(30.267-40)*(1.287-1.293)/(40-80)
         K_H=K_A*K_V*K_H_alpha*K_H_beta
         d_1H=d_1t_min*(K_H/K_Ht)**(1/3)
         m_nH=d_1H*cos(radians(beta))/z1
