@@ -1,0 +1,1 @@
+# Calculation-of-reduction-mechanism-design
