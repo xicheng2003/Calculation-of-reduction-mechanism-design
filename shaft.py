@@ -18,7 +18,7 @@ class shaft():
         elif (shaft.num==2)&(self.material=='45'):
             self.A0=105
             self.tau_T_avaliable=34
-            self.keyhole=1
+            self.keyhole=2
         elif (shaft.num==3)&(self.material=='45'):
             self.A0=97
             self.tau_T_avaliable=40
