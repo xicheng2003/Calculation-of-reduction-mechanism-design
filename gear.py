@@ -231,11 +231,11 @@ class gear():
         else:
             K_F_alpha=1.4
         if gear.number==1:
-            K_H_beta=1.17+0.18*(1+0.6*(b/d1)**2)*(b/d1)**2+0.47*10**(-3)*b#查表10-4得，插值法得到
-            K_F_beta=1.28#查图 10-13得
+            K_H_beta=(b-40)*(1.066-1.075)/(40-80)+1.066#查表10-4得，插值法得到
+            K_F_beta=1.1#查图 10-13得
         else :
-            K_H_beta=1.290##查表10-4，插值法得到0.003+1.287+(30.267-40)*(1.287-1.293)/(40-80)
-            K_F_beta=1.22#查图 10-13得
+            K_H_beta=(b-40)*(1.075-1.066)/(80-40)+1.066##查表10-4，插值法得到
+            K_F_beta=1.1#查图 10-13得
         K_F=K_A*K_V*K_F_alpha*K_F_beta
         print('\t     使用系数 K_A=',K_A)
         print('\t     动载系数 K_V=',K_V)
@@ -282,12 +282,12 @@ class gear():
         print('\t(3)计算大小齿轮的分度圆直径')
         self.d1=z1*self.m_n/cos(radians(beta))
         self.d2=z2*self.m_n/cos(radians(beta))
-        self.d_a1=self.d1+2*self.m_n
-        self.d_a2=self.d2+2*self.m_n
+        self.d_a1=z1*(self.m_n+2)/cos(radians(beta))
+        self.d_a2=z2*(self.m_n+2)/cos(radians(beta))
         print('\t      小齿轮分度圆直径 d1={}'.format(self.d1))
         print('\t      大齿轮分度圆直径 d2={}'.format(self.d2))
-        print('\t      小齿轮分度圆直径 d1={}'.format(self.d1))
-        print('\t      大齿轮分度圆直径 d2={}'.format(self.d2))
+        print('\t      小齿轮齿顶圆直径 d_a1={}'.format(self.d_a1))
+        print('\t      大齿轮齿顶圆直径 d_a2={}'.format(self.d_a2))
         print('\t(4)计算齿轮宽度')
         b=phi_d*d1
         self.b1=ceil(b+5)
