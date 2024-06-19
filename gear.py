@@ -123,7 +123,7 @@ class gear():
         print('\t(2)调整小齿轮分度圆直径')
         print('\t   1)计算实际载荷系数前的数据准备')
         v=pi*d_1t_min*n1/60/1000
-        b=phi_d*d_1t_min#33.00545mm；53.807947mm;
+        b=phi_d*d_1t_min#39.004738mm；60.095017mm;
         print('\t     圆周速度v={:.8}m/s'.format(v))
         print('\t     齿宽b={:.8}mm'.format(b))
         print('\t   2)计算实际载荷系数K_H')
@@ -209,7 +209,7 @@ class gear():
         print('\t   1)计算实际载荷系数前的数据准备')
         d1=m_nt_min*z1/cos(radians(beta))
         v=pi*d1*n1/60/1000
-        b=phi_d*d1#28.598mm；45.404mm
+        b=phi_d*d1#33.907mm；49.556mm
         h=(2*h_an_star+c_n_star)*m_nt_min
         aspect_ratio=b/h
         print('\t     计算圆周速度 v')
@@ -282,11 +282,13 @@ class gear():
         print('\t(3)计算大小齿轮的分度圆直径')
         self.d1=z1*self.m_n/cos(radians(beta))
         self.d2=z2*self.m_n/cos(radians(beta))
-        self.d_a1=z1*(self.m_n+2)/cos(radians(beta))
-        self.d_a2=z2*(self.m_n+2)/cos(radians(beta))
+        self.d_a1=self.d1+2*self.m_n
+        self.d_f1=self.d1-2.5*self.m_n
+        self.d_a2=self.d2+2*self.m_n
         print('\t      小齿轮分度圆直径 d1={}'.format(self.d1))
         print('\t      大齿轮分度圆直径 d2={}'.format(self.d2))
         print('\t      小齿轮齿顶圆直径 d_a1={}'.format(self.d_a1))
+        print('\t      小齿轮齿根圆直径 d_f1={}'.format(self.d_f1))
         print('\t      大齿轮齿顶圆直径 d_a2={}'.format(self.d_a2))
         print('\t(4)计算齿轮宽度')
         b=phi_d*d1

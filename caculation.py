@@ -25,7 +25,7 @@ def total_design():
 
     #Calculate the transmission ratio
     i=nm/nw
-    i1=1.2
+    i1=2
     i3=sqrt(i/(1.2*i1))
     i2=1.2*i3
     print("总传动比为：\n\ti={}".format(i))
@@ -55,7 +55,7 @@ def total_design():
     T2=9550*P2/n2
     T3=9550*P3/n3
     T4=9550*P4/n4
-    print("各轴的输入功率分别为：\n\tT1={} N·m,\n\tT2={} N·m,\n\tT3={} N·m,\n\tT4={} N·m".format(T1,T2,T3,T4))
+    print("各轴的输入转矩分别为：\n\tT1={} N·m,\n\tT2={} N·m,\n\tT3={} N·m,\n\tT4={} N·m".format(T1,T2,T3,T4))
     T=[T1,T2,T3,T4]
     return i,n,P,T
 

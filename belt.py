@@ -23,7 +23,7 @@ class belt():
         self.dd1=125#查表8-7、8-9、图8-11得
         self.v=pi*self.dd1*self.n1/60/1000
         self.dd20=self.dd1*self.i
-        self.dd2=150#查表8-9 根据计算值取标准值
+        self.dd2=250#查表8-9 根据计算值取标准值
         print('\t初取小带轮基准直径 d_d1={}mm'.format(self.dd1))
         print('\t带速 v={}m/s'.format(self.v))
         if (self.v<30)&(self.v>5):
@@ -34,7 +34,7 @@ class belt():
         print('4.确定V带的中心距a和基准直径L_d')
         self.a0=0.7*(self.dd1+self.dd2)
         self.Ld0=2*self.a0+pi/2*(self.dd1+self.dd2)+(self.dd2-self.dd1)**2/4/self.a0
-        self.Ld=890
+        self.Ld=1250
         self.a=self.a0+(self.Ld-self.Ld0)/2
         self.a_min=self.a-0.015*self.Ld
         self.a_max=self.a+0.030*self.Ld
@@ -48,10 +48,10 @@ class belt():
             print("\t小带轮上的包角 α1 合适！")
         print('6.计算带的根数 z')
         print('\t(1)计算单根V带的额定功率 Pr')
-        self.P0=1.9096#插值法得到 1.9096kW
-        self.Delta_P0=0.0896#插值法得到 0.0896kW
-        self.K_alpha=0.99#表8-6
-        self.K_L=0.87#表8-2
+        self.P0=1.66+(1.92-1.66)*(1440-1200)/(1450-1200)#查表8-4 插值法得到
+        self.Delta_P0=0.15+(0.02)*(1440-1200)/(1450-1200)#查表8-5 插值法得到
+        self.K_alpha=0.95#表8-6
+        self.K_L=0.93#表8-2
         self.Pr=(self.P0+self.Delta_P0)*self.K_alpha*self.K_L
         print('\t   单根V带的基本额定功率 P0={}kW'.format(self.P0))  
         print('\t   单根V带的额定功率增量 ΔP0={}kW'.format(self.Delta_P0)) 

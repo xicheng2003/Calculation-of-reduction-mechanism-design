@@ -12,11 +12,11 @@ class shaft():
         self.dia()
     def dia(self):
         if (shaft.num==1)&(self.material=='45'):
-            self.A0=110#查表15-3
+            self.A0=107#查表15-3
             self.tau_T_avaliable=28
             self.keyhole=1
         elif (shaft.num==2)&(self.material=='45'):
-            self.A0=107
+            self.A0=105
             self.tau_T_avaliable=34
             self.keyhole=1
         elif (shaft.num==3)&(self.material=='45'):
