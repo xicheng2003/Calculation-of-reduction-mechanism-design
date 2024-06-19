@@ -12,7 +12,7 @@ class shaft():
         self.dia()
     def dia(self):
         if (shaft.num==1)&(self.material=='45'):
-            self.A0=110
+            self.A0=110#查表15-3
             self.tau_T_avaliable=28
             self.keyhole=1
         elif (shaft.num==2)&(self.material=='45'):
@@ -28,8 +28,9 @@ class shaft():
             self.tau_T_avaliable=40
             self.keyhole=1
         self.d0=self.A0*(self.P/self.n)**(1/3)
-        self.d=ceil(self.d0*(1+0.1*self.keyhole))
+        self.d=ceil(self.d0*(1+0.05*self.keyhole))
         print('对于第 {} 根轴'.format(shaft.num))
+        print('输入功率P= {} '.format(self.P))
         print('\t取A_0={},[τ_T]={}MPa'.format(self.A0,self.tau_T_avaliable))
         print('\t估算轴的直径 d={}mm'.format(self.d0))
         print('\t考虑键槽的影响，扩大轴的直径')
