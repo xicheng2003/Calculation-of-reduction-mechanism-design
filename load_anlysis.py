@@ -1,26 +1,27 @@
-from math import tan,cos,radians
+from math import tan, cos, radians
+
+def calculate_forces(T, d, alpha, beta):
+    F_t = 2 * T / d * 1000
+    F_r = F_t * tan(alpha) / cos(beta)
+    F_a = F_t * tan(beta)
+    return F_t, F_r, F_a
 
 def force_analyze(gear):
-    
-    alpha=radians(gear.alpha)
-    beta=radians(gear.beta)
-    F_t1=2*gear.T/gear.d1*1000
-    F_r1=F_t1*tan(alpha)/cos(beta)
-    F_a1=F_t1*tan(beta)
+    alpha = radians(gear.alpha)
+    beta = radians(gear.beta)
 
-    F_t2=2*gear.T/gear.d2*1000
-    F_r2=F_t2*tan(alpha)/cos(beta)
-    F_a2=F_t2*tan(beta)
+    F_t1, F_r1, F_a1 = calculate_forces(gear.T, gear.d1, alpha, beta)
+    F_t2, F_r2, F_a2 = calculate_forces(gear.T, gear.d2, alpha, beta)
 
-    print("\t小齿轮：")
-    print("\t\t小齿轮圆周力F_t1 = {:.7} N".format(F_t1))
-    print("\t\t小齿轮径向力F_r1 = {:.7} N".format(F_r1))
-    print("\t\t小齿轮轴向力F_a1 = {:.7} N".format(F_a1))
+    def print_forces(name, F_t, F_r, F_a):
+        print(f"\t{name}：")
+        print(f"\t\t{name}圆周力F_t = {F_t:.7} N")
+        print(f"\t\t{name}径向力F_r = {F_r:.7} N")
+        print(f"\t\t{name}轴向力F_a = {F_a:.7} N")
 
-    print("\t大齿轮：")
-    print("\t\t大齿轮圆周力F_t2 = {:.7} N".format(F_t2))
-    print("\t\t大齿轮径向力F_r2 = {:.7} N".format(F_r2))
-    print("\t\t大齿轮轴向力F_a2 = {:.7} N".format(F_a2))
+    print_forces("小齿轮", F_t1, F_r1, F_a1)
+    print_forces("大齿轮", F_t2, F_r2, F_a2)
+
 
 
 
