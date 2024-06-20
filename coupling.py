@@ -9,7 +9,7 @@ class coupling():
         print('联轴器的基本要求参数')
         print('\t联轴器的输入功率 P={} kW'.format(self.P))
         print('\t联轴器的转速 n={} r/min'.format(self.n))
-        print('\t联轴器公称转矩 T={} N·m'.format(self.T))
+        print('\t联轴器输入转矩 T={} N·m'.format(self.T))
         self.type_select()
         self.size_confirm()
     def type_select(self):
@@ -18,7 +18,7 @@ class coupling():
         print('\t由于联轴器在减速器的输出端，转速低，传递转矩大，')
         print('\t故选用{}'.format(self.type))
     def size_confirm(self):
-        self.K_A=1.5
+        self.K_A=1.3#查表14-1
         self.T_ca=self.K_A*self.T
         self.size='LT11'
         self.T_avalible=6300

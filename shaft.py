@@ -18,7 +18,7 @@ class shaft():
         elif (shaft.num==2)&(self.material=='45'):
             self.A0=105
             self.tau_T_avaliable=34
-            self.keyhole=2
+            self.keyhole=0
         elif (shaft.num==3)&(self.material=='45'):
             self.A0=97
             self.tau_T_avaliable=40
@@ -30,9 +30,10 @@ class shaft():
         self.d0=self.A0*(self.P/self.n)**(1/3)
         self.d=ceil(self.d0*(1+0.05*self.keyhole))
         print('对于第 {} 根轴'.format(shaft.num))
-        print('输入功率P= {} '.format(self.P))
+        print('输入功率P= {} kW'.format(self.P))
+        print('转速n= {} r/min'.format(self.n))
         print('\t取A_0={},[τ_T]={}MPa'.format(self.A0,self.tau_T_avaliable))
-        print('\t估算轴的直径 d={}mm'.format(self.d0))
+        print('\t估算最小直径轴的直径 d={}mm'.format(self.d0))
         print('\t考虑键槽的影响，扩大轴的直径')
-        print('\t    轴上有 {} 个键槽，直径增大{}%'.format(self.keyhole,self.keyhole*5))
+        print('\t    最小直径的轴段上有 {} 个键槽，直径增大{}%'.format(self.keyhole,self.keyhole*5))
         print('\t    则 d={}mm'.format(self.d))

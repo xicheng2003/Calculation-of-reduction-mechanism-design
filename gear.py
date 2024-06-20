@@ -267,6 +267,7 @@ class gear():
         print('\t         按满足齿面接触疲劳强度出发，算得到分度圆直径 d1={:.5}mm'.format(d1))
         print('\t     则小齿轮齿数 z1={}，取为 z1={}'.format(z10,z1))
         print('\t     则大齿轮齿数 z2={}，取为 z2={}'.format(z1*u,z2))
+####设计结果
 
         print('\n4.几何尺寸计算')
         print('\t(1)计算中心距')
@@ -298,7 +299,19 @@ class gear():
         print('\t      取小齿轮宽度 b1={}mm'.format(self.b1))
         print('\t      取大齿轮宽度 b2={}mm'.format(self.b2))
 
-
+    def get_gear_data(self):
+        return {
+            'P': self.P,
+            'n1': self.n1,
+            'i': self.i,
+            'T': self.T,
+            'z1': self.z1,
+            'z2': self.z2,
+            'alpha': self.alpha,
+            'beta': self.beta,
+            'd1': self.d1,
+            'material': self.material
+        }
 # def gear_design(P,n,i):
 #     '''
 #     This function is programmed to design a gear according to “《机械设计》(第十版) 濮良贵等主编”
